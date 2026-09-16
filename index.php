@@ -42,3 +42,21 @@ function sumar($apellido)
 echo sumar("Alvarez");
 
 // Manipulación de cadenas
+// Longitud de cadena
+echo strlen($nombre);
+
+// Cadena a mayúsculas o minúsculas
+echo strtoupper($nombre);
+echo strtolower($nombre);
+
+// Remplazar partes de una cadena
+echo str_replace("Johan", "Pedro", $nombre);
+
+// Dividir una cadena en arreglos
+$partes = explode(" ", $nombre);
+echo $partes[0];
+
+// Concatenar arreglos
+$nuevaCadena = implode("-", $partes);
+echo $nuevaCadena;
+
