@@ -19,7 +19,7 @@ $resultado = $edad < 23;
 echo $resultado;
 
 // Lógicos && || !
-$edad < 18 || $esInge;
+$edad = 18 || $esInge;
 
 // Condicionales
 if ($edad > 18) {
@@ -60,3 +60,101 @@ echo $partes[0];
 $nuevaCadena = implode("-", $partes);
 echo $nuevaCadena;
 
+// Arreglos indexados
+$frutas[0] =  "Naranja";
+$frutas[] =  "Naranja x2";
+echo $frutas[0];
+echo $frutas[count($frutas) - 1];
+
+// Arreglos asociativos
+$persona = array("nombre" => "Pedro", "edad" => 24, "esInge" => true, "correo" => "pepe@gmail.com");
+echo $persona["nombre"];
+
+// Contar elementos de un arreglo
+$contador = count($frutas);
+
+// Ordenar arreglos
+sort($frutas);
+
+// Verificar si un valor existe en un arreglo
+var_dump(in_array("Lima", $frutas)); // Devuelve true
+var_dump(in_array("Limo", $frutas)); // Devuelve false
+
+// Agregar un elemento al final de un arreglo
+array_push($frutas, "Mandarina");
+
+// Eliminar el ultimo elemento de un arreglo
+array_pop($frutas);
+
+// Programación orientada a objetos
+// Clases
+class Automóvil
+{
+    public $marca;
+    public $modelo;
+    public $color;
+
+    function __construct($marca, $modelo, $color)
+    {
+        $this->marca = $marca;
+        $this->modelo = $modelo;
+        $this->color = $color;
+    }
+
+    function mostrar()
+    {
+        echo "Marca: " . $this->marca;
+        echo "Modelo: " . $this->modelo;
+        echo "Color: " . $this->color;
+    }
+
+    function arrancar()
+    {
+        echo "Arrancando automóvil";
+    }
+}
+
+$miAuto = new Automóvil("Volkswagen", "Golf", "Azul");
+$miAuto->mostrar();
+$miAuto->arrancar();
+
+// Herencia
+// Clases Padre
+class Animal
+{
+    public $nombre;
+    public $edad;
+
+    public function __construct($nombre, $edad)
+    {
+        $this->nombre = $nombre;
+        $this->edad = $edad;
+    }
+
+    public function comer()
+    {
+        echo "Comiendo " . $this->nombre;
+    }
+}
+
+// Clase Hija
+class Ave extends Animal
+{
+    public $tipoPluma;
+
+    public function __construct($nombre, $edad, $tipoPluma)
+    {
+        parent::__construct($nombre, $edad);
+
+        $this->tipoPluma = $tipoPluma;
+    }
+
+    public function volar()
+    {
+        echo "Volando " . $this->tipoPluma;
+    }
+}
+
+$perico = new Ave("Perico", 3, "Perico");
+$perico->comer();
+$perico->volar();
