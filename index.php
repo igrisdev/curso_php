@@ -198,3 +198,35 @@ $gol = new Gol("Gol");
 $gol->arrancar();
 
 // Interfaces
+interface Pago
+{
+    public function procesarPago(int $monto);
+}
+
+class PagoTarjeta implements Pago
+{
+    public function procesarPago(int $monto)
+    {
+        echo "Procesando pago con tarjeta de " . $monto;
+    }
+}
+
+class PagoPaypal implements Pago
+{
+    public function procesarPago(int $monto)
+    {
+        echo "Procesando pago con Paypal de " . $monto;
+    }
+}
+
+function procesarPago(Pago $pago, int $monto)
+{
+    $pago->procesarPago($monto);
+}
+
+$tarjeta = new PagoTarjeta();
+$paypal = new PagoPaypal();
+procesarPago($tarjeta, 100);
+procesarPago($paypal, 200);
+
+
