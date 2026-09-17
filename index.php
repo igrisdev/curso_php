@@ -34,7 +34,7 @@ foreach ($frutas as $fruta) {
 }
 
 // Funciones
-function sumar($apellido)
+function sumar(String $apellido)
 {
     return "Johan " . $apellido;
 }
@@ -90,11 +90,11 @@ array_pop($frutas);
 // Clases
 class Automóvil
 {
-    public $marca;
-    public $modelo;
-    public $color;
+    public String $marca;
+    public String $modelo;
+    public String $color;
 
-    function __construct($marca, $modelo, $color)
+    function __construct(String $marca, String $modelo, String $color)
     {
         $this->marca = $marca;
         $this->modelo = $modelo;
@@ -122,10 +122,10 @@ $miAuto->arrancar();
 // Clases Padre
 class Animal
 {
-    public $nombre;
-    public $edad;
+    public String $nombre;
+    public int $edad;
 
-    public function __construct($nombre, $edad)
+    public function __construct(String $nombre, int $edad)
     {
         $this->nombre = $nombre;
         $this->edad = $edad;
@@ -140,9 +140,9 @@ class Animal
 // Clase Hija
 class Ave extends Animal
 {
-    public $tipoPluma;
+    public String $tipoPluma;
 
-    public function __construct($nombre, $edad, $tipoPluma)
+    public function __construct(String $nombre, int $edad, String $tipoPluma)
     {
         parent::__construct($nombre, $edad);
 
@@ -158,3 +158,23 @@ class Ave extends Animal
 $perico = new Ave("Perico", 3, "Perico");
 $perico->comer();
 $perico->volar();
+
+// Polimorfismo
+
+Class Motor {
+    protected String $marca;
+
+    public function __construct(string $marca) {
+        $this->marca = $marca;
+    }
+
+    public function arrancar() {
+        echo $this->marca . " arrancando de alguna manera";
+    }
+}
+
+class Gol extends Motor {
+    public function arrancar() {
+        echo $this->marca . " arrancando de gol";
+    }
+}
