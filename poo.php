@@ -178,3 +178,40 @@ class Libro
 
 $libro = new Libro();
 $libro->crear("El Señor de los Anillos");
+
+// Namespaces
+// namespace Usuarios;
+// class Database
+// {
+//     public function conectar()
+//     {
+//         echo "Conectando a la base de datos usuarios";
+//     }
+// }
+
+// namespace Productos;
+// class Database
+// {
+//     public function conectar()
+//     {
+//         echo "Conectando a la base de datos productos";
+//     }
+// }
+
+
+// Manejo dea excepciones
+
+function registrarUsuario(int $edad2, String $nombre2)
+{
+    if ($edad2 < 18) {
+        throw new Exception("Debes ser mayor de edad");
+    } else {
+        echo "Registrando usuario " . $nombre2 . " con edad " . $edad2;
+    }
+}
+
+try {
+    registrarUsuario(16, "Pedro");
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "<br>";
+}
