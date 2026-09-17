@@ -161,20 +161,40 @@ $perico->volar();
 
 // Polimorfismo
 
-Class Motor {
+class Motor
+{
     protected String $marca;
 
-    public function __construct(string $marca) {
+    public function __construct(string $marca)
+    {
         $this->marca = $marca;
     }
 
-    public function arrancar() {
+    public function arrancar()
+    {
         echo $this->marca . " arrancando de alguna manera";
     }
 }
 
-class Gol extends Motor {
-    public function arrancar() {
+class Gol extends Motor
+{
+    public function arrancar()
+    {
         echo $this->marca . " arrancando de gol";
     }
 }
+
+class Volkswagen extends Motor
+{
+    public function arrancar()
+    {
+        echo $this->marca . " arrancando x2 ";
+    }
+}
+
+$vw = new Volkswagen("Volkswagen");
+$vw->arrancar();
+$gol = new Gol("Gol");
+$gol->arrancar();
+
+// Interfaces
