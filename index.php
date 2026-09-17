@@ -229,4 +229,40 @@ $paypal = new PagoPaypal();
 procesarPago($tarjeta, 100);
 procesarPago($paypal, 200);
 
+// Clases abstractas
+
+abstract class Vegetal
+{
+    abstract public function comer();
+}
+
+class Alga extends Vegetal
+{
+    public function comer()
+    {
+        echo "Comiendo ave";
+    }
+}
+
+// Traits
+trait Logger
+{
+    public function log($msg)
+    {
+        echo date('Y-m-d H:i:s') . " : " . $msg . "<br>";
+    }
+}
+
+class Libro
+{
+    use Logger;
+
+    public function crear($titulo)
+    {
+        $this->log("Creando libro : $titulo");
+    }
+}
+
+$libro = new Libro();
+$libro->crear("El Señor de los Anillos");
 
